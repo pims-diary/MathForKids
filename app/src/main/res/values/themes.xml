@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Math_For_Kids" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="SplashTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/white</item> <!-- Set your splash background color -->
+        <item name="android:windowNoTitle">true</item> <!-- Hide title bar -->
+    </style>
+</resources>
