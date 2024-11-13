@@ -8,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -19,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.math_for_kids.ui.theme.Math_For_KidsTheme
 import com.example.math_for_kids.view.screens.AppLandingScreen
-import com.example.math_for_kids.view.screens.HomeScreen
 import com.example.math_for_kids.view.screens.SplashScreen
 import kotlinx.coroutines.delay
 

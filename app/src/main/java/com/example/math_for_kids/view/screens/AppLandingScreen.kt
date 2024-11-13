@@ -2,6 +2,11 @@ package com.example.math_for_kids.view.screens
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -16,10 +21,24 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.math_for_kids.model.menuItems
+import com.example.math_for_kids.model.MenuItemDetails
 import com.example.math_for_kids.view.components.MenuItem
 import com.example.math_for_kids.view.components.MenuTopBar
 import kotlinx.coroutines.launch
+
+///List of Navigation Items that will be clicked
+val menuItems = listOf(
+    MenuItemDetails(
+        title = "Home",
+        selectedIcon = Icons.Filled.Home,
+        unselectedIcon = Icons.Outlined.Home
+    ),
+    MenuItemDetails(
+        title = "Play",
+        selectedIcon = Icons.Filled.PlayArrow,
+        unselectedIcon = Icons.Outlined.PlayArrow
+    )
+)
 
 @Composable
 fun AppLandingScreen() {
@@ -68,7 +87,7 @@ fun AppLandingScreen() {
         // Navigation completed here
         when (route) {
             "home" -> HomeScreen()
-            "play" -> PlayScreen()
+            "play" -> QuizScreen()
         }
     }
 }
