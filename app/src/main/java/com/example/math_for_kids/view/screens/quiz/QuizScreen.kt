@@ -8,18 +8,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
 import com.example.math_for_kids.view.components.OptionsGrid
 import com.example.math_for_kids.viewmodel.QuizViewModel
 
 @Composable
-fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel = viewModel()) {
+fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel) {
     val questionState by viewModel.currentQuestion.collectAsState()
     val feedbackText by viewModel.feedbackText.collectAsState()
     val isNextEnabled by viewModel.isNextEnabled.collectAsState()
     val questionNumber by viewModel.questionNumber.collectAsState()
+    val totalCorrectAnswers by viewModel.totalCorrectAnswers.collectAsState()
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -55,6 +55,7 @@ fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel = view
             fontSize = 18.sp,
             modifier = Modifier.padding(8.dp)
         )
+        Text("$totalCorrectAnswers")
 
         if (questionNumber != viewModel.totalQuestions) {
             Button(

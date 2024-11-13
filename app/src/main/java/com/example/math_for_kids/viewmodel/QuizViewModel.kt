@@ -19,6 +19,7 @@ class QuizViewModel: ViewModel() {
     private var selectedQuestions = questions.shuffled().take(totalQuestions)
 
     private var currentQuestionIndex = 1
+
     private val _currentQuestion = MutableStateFlow(selectedQuestions[currentQuestionIndex - 1])
     val currentQuestion: StateFlow<Question?> get() = _currentQuestion
 
@@ -31,9 +32,13 @@ class QuizViewModel: ViewModel() {
     private val _questionNumber = MutableStateFlow(1)
     val questionNumber: StateFlow<Int> get() = _questionNumber
 
+    private val _totalCorrectAnswers = MutableStateFlow(0)
+    val totalCorrectAnswers: StateFlow<Int> get() = _totalCorrectAnswers
+
     fun checkAnswer(selectedAnswer: Int) {
         if (selectedAnswer == currentQuestion.value?.answer) {
             _feedbackText.value = "Correct!"
+            _totalCorrectAnswers.value++
         } else {
             _feedbackText.value = "Wrong!"
         }
@@ -49,7 +54,7 @@ class QuizViewModel: ViewModel() {
             _questionNumber.value = currentQuestionIndex
         } else {
             // Reset for demonstration, could show a results screen instead
-            resetQuiz()
+//            resetQuiz()
         }
     }
 
@@ -60,5 +65,6 @@ class QuizViewModel: ViewModel() {
         _feedbackText.value = ""
         _isNextEnabled.value = false
         _questionNumber.value = 1
+        _totalCorrectAnswers.value = 0
     }
 }
