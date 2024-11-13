@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.math_for_kids.model.MenuItemDetails
+import com.example.math_for_kids.navigations.QuizScreensStack
 import com.example.math_for_kids.view.components.MenuItem
 import com.example.math_for_kids.view.components.MenuTopBar
 import kotlinx.coroutines.launch
@@ -87,7 +88,7 @@ fun AppLandingScreen() {
         // Navigation completed here
         when (route) {
             "home" -> HomeScreen()
-            "play" -> QuizScreen()
+            "play" -> QuizScreensStack()
         }
     }
 }

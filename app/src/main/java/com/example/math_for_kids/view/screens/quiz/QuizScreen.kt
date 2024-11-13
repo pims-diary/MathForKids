@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens
+package com.example.math_for_kids.view.screens.quiz
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -9,10 +9,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import com.example.math_for_kids.navigations.QuizPage
 import com.example.math_for_kids.viewmodel.QuizViewModel
 
 @Composable
-fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
+fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel = viewModel()) {
     val questionState by viewModel.currentQuestion.collectAsState()
     val feedbackText by viewModel.feedbackText.collectAsState()
     val isNextEnabled by viewModel.isNextEnabled.collectAsState()
@@ -42,7 +44,8 @@ fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
             options = questionState!!.options,
             onOptionSelected = { selectedAnswer ->
                 viewModel.checkAnswer(selectedAnswer)
-            }
+            },
+            enabled = !isNextEnabled
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -62,7 +65,7 @@ fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
             }
         } else {
             Button(
-                onClick = { viewModel.loadNextQuestion() },
+                onClick = { navController.navigate(QuizPage.QuizResult.route) },
                 enabled = isNextEnabled,
                 modifier = Modifier.padding(top = 16.dp)
             ) {
@@ -73,7 +76,7 @@ fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
 }
 
 @Composable
-fun OptionsGrid(options: List<Int>, onOptionSelected: (Int) -> Unit) {
+fun OptionsGrid(options: List<Int>, onOptionSelected: (Int) -> Unit, enabled: Boolean = true) {
     Column {
         for (i in options.indices step 2) {
             Row(
@@ -82,16 +85,16 @@ fun OptionsGrid(options: List<Int>, onOptionSelected: (Int) -> Unit) {
                     .fillMaxWidth()
                     .padding(4.dp)
             ) {
-                OptionButton(option = options[i], onOptionSelected = onOptionSelected)
-                OptionButton(option = options[i + 1], onOptionSelected = onOptionSelected)
+                OptionButton(option = options[i], onOptionSelected = onOptionSelected, enabled = enabled)
+                OptionButton(option = options[i + 1], onOptionSelected = onOptionSelected, enabled = enabled)
             }
         }
     }
 }
 
 @Composable
-fun OptionButton(option: Int, onOptionSelected: (Int) -> Unit) {
-    Button(onClick = { onOptionSelected(option) }) {
+fun OptionButton(option: Int, onOptionSelected: (Int) -> Unit,  enabled: Boolean = true) {
+    Button(onClick = { onOptionSelected(option) }, enabled = enabled) {
         Text(text = option.toString())
     }
 }
