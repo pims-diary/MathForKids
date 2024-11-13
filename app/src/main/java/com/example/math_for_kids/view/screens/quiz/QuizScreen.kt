@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
+import com.example.math_for_kids.view.components.OptionsGrid
 import com.example.math_for_kids.viewmodel.QuizViewModel
 
 @Composable
@@ -72,29 +73,5 @@ fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel = view
                 Text("See Result")
             }
         }
-    }
-}
-
-@Composable
-fun OptionsGrid(options: List<Int>, onOptionSelected: (Int) -> Unit, enabled: Boolean = true) {
-    Column {
-        for (i in options.indices step 2) {
-            Row(
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(4.dp)
-            ) {
-                OptionButton(option = options[i], onOptionSelected = onOptionSelected, enabled = enabled)
-                OptionButton(option = options[i + 1], onOptionSelected = onOptionSelected, enabled = enabled)
-            }
-        }
-    }
-}
-
-@Composable
-fun OptionButton(option: Int, onOptionSelected: (Int) -> Unit,  enabled: Boolean = true) {
-    Button(onClick = { onOptionSelected(option) }, enabled = enabled) {
-        Text(text = option.toString())
     }
 }
