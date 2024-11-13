@@ -19,7 +19,10 @@ fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel) {
     val feedbackText by viewModel.feedbackText.collectAsState()
     val isNextEnabled by viewModel.isNextEnabled.collectAsState()
     val questionNumber by viewModel.questionNumber.collectAsState()
-    val totalCorrectAnswers by viewModel.totalCorrectAnswers.collectAsState()
+
+    LaunchedEffect(Unit) {
+        viewModel.restartQuiz()
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -55,7 +58,6 @@ fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel) {
             fontSize = 18.sp,
             modifier = Modifier.padding(8.dp)
         )
-        Text("$totalCorrectAnswers")
 
         if (questionNumber != viewModel.totalQuestions) {
             Button(
