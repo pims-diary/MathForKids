@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.math_for_kids.model.Question
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class QuizViewModel: ViewModel() {
     private val level1Questions = listOf(
@@ -23,10 +24,11 @@ class QuizViewModel: ViewModel() {
     )
 
     val totalQuestions = 3
+    private val maxLevel = 2
 
     private var currentQuestionIndex = 1
 
-    private var selectedQuestions = listOf(Question("", 1, listOf(0, 0, 0, 0)),)
+    private var selectedQuestions = listOf(Question("", 1, listOf(0, 0, 0, 0)))
 
     private val _currentQuestion = MutableStateFlow(selectedQuestions[currentQuestionIndex - 1])
     val currentQuestion: StateFlow<Question?> get() = _currentQuestion
@@ -44,7 +46,7 @@ class QuizViewModel: ViewModel() {
     val totalCorrectAnswers: StateFlow<Int> get() = _totalCorrectAnswers
 
     private val _level = MutableStateFlow(1)
-    val level: StateFlow<Int> get() = _level
+    val level: StateFlow<Int> get() = _level.asStateFlow()
 
     private fun fetchQuestions() {
         var questions: List<Question> = level1Questions
@@ -83,12 +85,20 @@ class QuizViewModel: ViewModel() {
 
     fun restartQuiz() {
         currentQuestionIndex = 1
-        selectedQuestions = listOf(Question("", 1, listOf(0, 0, 0, 0)),)
+        selectedQuestions = listOf(Question("", 1, listOf(0, 0, 0, 0)))
         _currentQuestion.value = selectedQuestions[currentQuestionIndex - 1]
         _feedbackText.value = ""
         _isNextEnabled.value = false
         _questionNumber.value = 1
         _totalCorrectAnswers.value = 0
         fetchQuestions()
+    }
+
+    fun changeLevel() {
+        if (_level.value != maxLevel) {
+            _level.value += 1
+        } else {
+            _level.value = 1
+        }
     }
 }
