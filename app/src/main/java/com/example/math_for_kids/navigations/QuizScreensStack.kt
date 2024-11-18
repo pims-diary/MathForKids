@@ -5,7 +5,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.math_for_kids.view.screens.QuizResultScreen
+import com.example.math_for_kids.view.screens.quiz.QuizResultScreen
 import com.example.math_for_kids.view.screens.quiz.QuizScreen
 import com.example.math_for_kids.viewmodel.QuizViewModel
 

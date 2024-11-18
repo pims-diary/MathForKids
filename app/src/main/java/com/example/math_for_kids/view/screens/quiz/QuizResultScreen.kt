@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens
+package com.example.math_for_kids.view.screens.quiz
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

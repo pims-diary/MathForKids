@@ -54,11 +54,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Math_For_KidsTheme {
-        AppLandingScreen()
-    }
-}
