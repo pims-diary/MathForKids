@@ -21,6 +21,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.math_for_kids.model.MenuItemDetails
 import com.example.math_for_kids.navigations.QuizScreensStack
 import com.example.math_for_kids.view.components.MenuItem
@@ -42,7 +43,7 @@ val menuItems = listOf(
 )
 
 @Composable
-fun AppLandingScreen() {
+fun AppLandingScreen(navHostController: NavHostController) {
     //Remember Clicked index state and the Route Screen
     var selectedItemIndex by rememberSaveable { mutableIntStateOf(0) }
     var route by remember {  mutableStateOf("home") }

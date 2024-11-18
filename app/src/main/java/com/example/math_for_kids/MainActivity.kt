@@ -8,16 +8,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.math_for_kids.navigations.LoginScreensStack
 import com.example.math_for_kids.ui.theme.Math_For_KidsTheme
-import com.example.math_for_kids.view.screens.AppLandingScreen
 import com.example.math_for_kids.view.screens.SplashScreen
 import kotlinx.coroutines.delay
 
@@ -41,12 +39,12 @@ class MainActivity : ComponentActivity() {
 
                     // Use default splash screen if the device is running Android 12 or later
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        AppLandingScreen()
+                        LoginScreensStack()
                     } else {
                         if (isLoading) {
                             SplashScreen()
                         } else {
-                            AppLandingScreen()
+                            LoginScreensStack()
                         }
                     }
                 }
