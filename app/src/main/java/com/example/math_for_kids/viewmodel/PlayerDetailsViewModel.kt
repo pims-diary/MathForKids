@@ -14,7 +14,7 @@ import java.io.IOException
 class PlayerDetailsViewModel : ViewModel() {
     var responseBody by mutableStateOf<Map<String, Any>>(emptyMap())
     private var errorMessage by mutableStateOf("")
-    var code by mutableIntStateOf(0)
+    private var code by mutableIntStateOf(0)
     private var isSuccess by mutableStateOf(false)
 
     fun getPlayer(playerId: String) {
