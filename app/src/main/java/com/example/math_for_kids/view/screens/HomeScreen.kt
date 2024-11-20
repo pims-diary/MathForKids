@@ -67,6 +67,10 @@ fun HomeScreen(
 
             Button(onClick = {
                 navHostController.navigate(AuthPages.Login.route)
+                // Clear dataStore on Logout
+                scope.launch {
+                    updateLevel(context, 0)
+                }
             }) {
                 Text("Logout")
             }
