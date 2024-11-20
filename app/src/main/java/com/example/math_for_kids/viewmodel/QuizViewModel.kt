@@ -103,6 +103,10 @@ class QuizViewModel: ViewModel() {
         fetchQuestions()
     }
 
+    fun setLevel(newLevel: Int) {
+        _level.value = newLevel
+    }
+
     fun changeLevel() {
         if (_level.value != maxLevel) {
             _level.value += 1
