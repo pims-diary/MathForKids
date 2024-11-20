@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
 import com.example.math_for_kids.storage.updateLevel
+import com.example.math_for_kids.viewmodel.PlayerDetailsViewModel
 import com.example.math_for_kids.viewmodel.QuizViewModel
 import kotlinx.coroutines.launch
 
@@ -74,6 +75,8 @@ fun QuizResultScreen(navController: NavHostController, viewModel: QuizViewModel)
                     coroutineScope.launch {
                         viewModel.changeLevel()
                         updateLevel(context = context, level = level)
+                        val playerDetailsViewModel = PlayerDetailsViewModel()
+                        playerDetailsViewModel.updateLevel("10001", level.toString())
                         navController.navigate(QuizPage.QuizTest.route)
                     }
                 }

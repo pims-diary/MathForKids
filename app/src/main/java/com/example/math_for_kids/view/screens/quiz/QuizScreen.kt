@@ -26,10 +26,26 @@ fun QuizScreen(navController: NavHostController, viewModel: QuizViewModel) {
     val isNextEnabled by viewModel.isNextEnabled.collectAsState()
     val questionNumber by viewModel.questionNumber.collectAsState()
 
-    LaunchedEffect(Unit) {
-        scope.launch {
-            val newLevel = getLevel(context).first()
-            viewModel.setLevel(newLevel = newLevel)
+    val previousScreen = remember {
+        navController.previousBackStackEntry?.destination?.route
+    }
+
+    LaunchedEffect(previousScreen) {
+        // Check if User is navigating from Result Screen or not
+        if (previousScreen != "result") {
+            // If User is not navigating from Result Screen, that
+            // means User is navigating from Home screen. So we
+            // need to get the player level from dataStore
+            scope.launch {
+                val newLevel = getLevel(context).first()
+                viewModel.setLevel(newLevel = newLevel)
+                viewModel.restartQuiz()
+            }
+        } else {
+            // If User is navigating from Results Screen, that
+            // means User does not need to fetch player level
+            // from dataStore as that has already been done
+            // on Results Screen. Simply restart the quiz.
             viewModel.restartQuiz()
         }
     }
