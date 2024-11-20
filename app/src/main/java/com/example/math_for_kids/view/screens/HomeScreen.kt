@@ -57,6 +57,12 @@ fun HomeScreen(
             val email = response["email"] as? String ?: "Unknown"
             Text("Welcome, $name!")
             Text("Email: $email")
+
+            Button(onClick = {
+                navHostController.navigate(AuthPages.Login.route)
+            }) {
+                Text("Logout")
+            }
         } else {
             Box(
                 modifier = Modifier.fillMaxSize(),
