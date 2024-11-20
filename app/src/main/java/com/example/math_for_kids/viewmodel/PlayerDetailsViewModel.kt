@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.math_for_kids.database.api.RetrofitInstance
+import com.example.math_for_kids.database.api.UpdateLevel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -21,6 +22,27 @@ class PlayerDetailsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = RetrofitInstance.api.getPlayer(playerId)
+                isSuccess = response.isSuccessful
+                responseBody = response.body() ?: emptyMap()
+                code = response.code()
+            } catch (e: IOException) {
+                isSuccess = false
+                errorMessage = "Network Error: ${e.message}"
+            } catch (e: HttpException) {
+                isSuccess = false
+                errorMessage = "HTTP Error: ${e.message}"
+            } catch (e: Exception) {
+                isSuccess = false
+                errorMessage = "Unknown Server Error: ${e.message}"
+            }
+        }
+    }
+
+    fun updateLevel(playerId: String, newLevel: String) {
+        val requestBody = UpdateLevel(level = newLevel)
+        viewModelScope.launch {
+            try {
+                val response = RetrofitInstance.api.updateLevel(playerId, requestBody)
                 isSuccess = response.isSuccessful
                 responseBody = response.body() ?: emptyMap()
                 code = response.code()
