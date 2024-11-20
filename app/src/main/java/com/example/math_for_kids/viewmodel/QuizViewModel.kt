@@ -23,8 +23,16 @@ class QuizViewModel: ViewModel() {
         Question("9 / 3", 3, listOf(3, 5, 4, 6))
     )
 
+    private val level3Questions = listOf(
+        Question("2 x (2 + 1)", 6, listOf(4, 3, 5, 6)),
+        Question("13 x 5", 65, listOf(65, 75, 63, 49)),
+        Question("96 / 2", 48, listOf(52, 48, 38, 58)),
+        Question("126 / 14", 9, listOf(11, 9, 8, 12)),
+        Question("119 / 17", 7, listOf(7, 5, 8, 6))
+    )
+
     val totalQuestions = 3
-    private val maxLevel = 2
+    private val maxLevel = 3
 
     private var currentQuestionIndex = 1
 
@@ -54,6 +62,7 @@ class QuizViewModel: ViewModel() {
         when (_level.value) {
             1 -> questions = level1Questions
             2 -> questions = level2Questions
+            3 -> questions = level3Questions
         }
 
         selectedQuestions = questions.shuffled().take(totalQuestions)
