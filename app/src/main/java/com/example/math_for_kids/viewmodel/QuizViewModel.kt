@@ -86,9 +86,6 @@ class QuizViewModel: ViewModel() {
             _feedbackText.value = ""
             _isNextEnabled.value = false
             _questionNumber.value = currentQuestionIndex
-        } else {
-            // Reset for demonstration, could show a results screen instead
-//            restartQuiz()
         }
     }
 
