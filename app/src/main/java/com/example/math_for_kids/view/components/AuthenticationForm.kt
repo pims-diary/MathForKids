@@ -3,7 +3,6 @@ package com.example.math_for_kids.view.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -24,6 +23,7 @@ import androidx.compose.ui.unit.dp
 fun AuthenticationForm(buttonName: String, onButtonClick: () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var name by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier.padding(16.dp),
@@ -49,6 +49,18 @@ fun AuthenticationForm(buttonName: String, onButtonClick: () -> Unit) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             visualTransformation = PasswordVisualTransformation()
         )
+        if (buttonName == "Register") {
+            Spacer(modifier = Modifier.height(8.dp))
+            BasicTextField(
+                value = name,
+                onValueChange =
+                {
+                    name = it
+                },
+                labelText = "Name",
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+            )
+        }
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = onButtonClick) {
             Text(buttonName)
