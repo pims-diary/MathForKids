@@ -79,4 +79,10 @@ dependencies {
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // For parsing XML
+    implementation(libs.jsoup)
+    // For making network requests
+    implementation(libs.okhttp)
+
 }
