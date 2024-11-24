@@ -19,11 +19,11 @@ sealed class AuthPages(val route: String) {
 }
 
 @Composable
-fun LoginScreensStack(viewModel: AuthenticationViewModel = viewModel()) {
+fun LoginScreensStack() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = AuthPages.Login.route) {
-        composable(AuthPages.Login.route) { LoginScreen(navController, viewModel) }
-        composable(AuthPages.Registration.route) { RegistrationScreen(navController, viewModel) }
+        composable(AuthPages.Login.route) { LoginScreen(navController) }
+        composable(AuthPages.Registration.route) { RegistrationScreen(navController) }
         composable(AuthPages.AppLanding.route) { AppLandingScreen(navController) }
         composable(AuthPages.Home.route) { HomeScreen(navController) }
     }

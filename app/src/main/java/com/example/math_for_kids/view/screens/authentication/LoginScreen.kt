@@ -8,6 +8,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.AuthPages
 import com.example.math_for_kids.storage.savePlayerId
@@ -17,7 +18,7 @@ import com.example.math_for_kids.viewmodel.AuthenticationViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun LoginScreen(navHostController: NavHostController, authViewModel: AuthenticationViewModel) {
+fun LoginScreen(navHostController: NavHostController, authViewModel: AuthenticationViewModel = viewModel()) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
 
@@ -29,6 +30,7 @@ fun LoginScreen(navHostController: NavHostController, authViewModel: Authenticat
         AuthenticationForm("Login", authViewModel) { responseBody, isSuccess ->
             if (isSuccess) {
                 scope.launch {
+                    val playerId = responseBody["PlayerId"].toString()
                     savePlayerId(context, responseBody["PlayerId"].toString())
                     navHostController.navigate(AuthPages.AppLanding.route)
                 }

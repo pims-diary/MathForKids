@@ -39,7 +39,6 @@ fun AuthenticationForm(
         }
     }
 
-
     Column(
         modifier = Modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -79,7 +78,7 @@ fun AuthenticationForm(
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
             if (buttonName == "Register") {
-
+                viewModel.register(email, password, name)
             } else if (buttonName == "Login") {
                 viewModel.login(email, password)
             }
