@@ -10,9 +10,20 @@ data class LoginCreds(
     @SerializedName("Password") var password: String
 )
 
+data class RegisterCreds(
+    @SerializedName("Email") var email: String,
+    @SerializedName("Password") var password: String,
+    @SerializedName("Name") var name: String
+)
+
 interface SqlApiServices {
     @POST("sqlite/login")
     suspend fun login(
         @Body body: LoginCreds
+    ): Response<Map<String, Any>>
+
+    @POST("sqlite/register")
+    suspend fun register(
+        @Body body: RegisterCreds
     ): Response<Map<String, Any>>
 }
