@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.math_for_kids.database.api.RetrofitInstance
-import com.example.math_for_kids.database.api.UpdateLevel
+import com.example.math_for_kids.database.instance.RetrofitInstance
+import com.example.math_for_kids.database.api.nonsql.UpdateLevel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException

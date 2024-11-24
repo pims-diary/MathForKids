@@ -1,4 +1,4 @@
-package com.example.math_for_kids.database.api
+package com.example.math_for_kids.database.api.nonsql
 
 import retrofit2.Response
 import retrofit2.http.Body

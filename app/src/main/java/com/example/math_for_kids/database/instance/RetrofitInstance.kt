@@ -1,5 +1,6 @@
-package com.example.math_for_kids.database.api
+package com.example.math_for_kids.database.instance
 
+import com.example.math_for_kids.database.api.nonsql.NonSqlApiServices
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
