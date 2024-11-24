@@ -9,21 +9,36 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.math_for_kids.viewmodel.AuthenticationViewModel
 
 @Composable
-fun AuthenticationForm(buttonName: String, onButtonClick: () -> Unit) {
+fun AuthenticationForm(
+    buttonName: String,
+    viewModel: AuthenticationViewModel,
+    onSuccess: (Map<String, Any>, Boolean) -> Unit
+) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
+
+    // React to changes in isSuccess and responseBody
+    LaunchedEffect(viewModel.isSuccess) {
+        if (viewModel.isSuccess) {
+            onSuccess(viewModel.responseBody, viewModel.isSuccess)
+        }
+    }
+
 
     Column(
         modifier = Modifier.padding(16.dp),
@@ -62,8 +77,18 @@ fun AuthenticationForm(buttonName: String, onButtonClick: () -> Unit) {
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = onButtonClick) {
+        Button(onClick = {
+            if (buttonName == "Register") {
+
+            } else if (buttonName == "Login") {
+                viewModel.login(email, password)
+            }
+        }) {
             Text(buttonName)
+        }
+        if (viewModel.errorMessage.isNotBlank()) {
+            Spacer(Modifier.height(6.dp))
+            Text(viewModel.errorMessage, color = Color.Red)
         }
     }
 }

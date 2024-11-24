@@ -10,16 +10,19 @@ import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.AuthPages
 import com.example.math_for_kids.view.components.AuthenticationForm
 import com.example.math_for_kids.view.components.LinkButton
+import com.example.math_for_kids.viewmodel.AuthenticationViewModel
 
 @Composable
-fun RegistrationScreen(navHostController: NavHostController) {
+fun RegistrationScreen(navHostController: NavHostController, authViewModel: AuthenticationViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        AuthenticationForm("Register") {
-            navHostController.navigate(AuthPages.Login.route)
+        AuthenticationForm("Register", authViewModel) { response, isSuccess ->
+            if (isSuccess) {
+                navHostController.navigate(AuthPages.Login.route)
+            }
         }
         LinkButton(
             text = "Log In Instead",

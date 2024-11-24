@@ -13,10 +13,11 @@ import com.example.math_for_kids.navigations.AuthPages
 import com.example.math_for_kids.storage.savePlayerId
 import com.example.math_for_kids.view.components.AuthenticationForm
 import com.example.math_for_kids.view.components.LinkButton
+import com.example.math_for_kids.viewmodel.AuthenticationViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun LoginScreen(navHostController: NavHostController) {
+fun LoginScreen(navHostController: NavHostController, authViewModel: AuthenticationViewModel) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
 
@@ -25,10 +26,12 @@ fun LoginScreen(navHostController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        AuthenticationForm("Login") {
-            scope.launch {
-                savePlayerId(context, "10001")
-                navHostController.navigate(AuthPages.AppLanding.route)
+        AuthenticationForm("Login", authViewModel) { responseBody, isSuccess ->
+            if (isSuccess) {
+                scope.launch {
+                    savePlayerId(context, responseBody["PlayerId"].toString())
+                    navHostController.navigate(AuthPages.AppLanding.route)
+                }
             }
         }
         LinkButton(
