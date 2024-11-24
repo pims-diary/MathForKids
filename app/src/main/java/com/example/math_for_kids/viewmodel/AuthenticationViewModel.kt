@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.math_for_kids.database.api.sql.LoginCreds
+import com.example.math_for_kids.database.api.sql.RegisterCreds
 import com.example.math_for_kids.database.instance.RetrofitInstance
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -23,6 +24,31 @@ class AuthenticationViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = RetrofitInstance.sqlApiServices.login(requestBody)
+                isSuccess = response.isSuccessful
+                code = response.code()
+                if (isSuccess) {
+                    responseBody = response.body() ?: emptyMap()
+                } else {
+                    errorMessage = response.errorBody()?.string() ?: "{}"
+                }
+            } catch (e: IOException) {
+                isSuccess = false
+                errorMessage = "Network Error: ${e.message}"
+            } catch (e: HttpException) {
+                isSuccess = false
+                errorMessage = "HTTP Error: ${e.message}"
+            } catch (e: Exception) {
+                isSuccess = false
+                errorMessage = "Unknown Server Error: ${e.message}"
+            }
+        }
+    }
+
+    fun register(email: String, password: String, name: String) {
+        val requestBody = RegisterCreds(email, password, name)
+        viewModelScope.launch {
+            try {
+                val response = RetrofitInstance.sqlApiServices.register(requestBody)
                 isSuccess = response.isSuccessful
                 code = response.code()
                 if (isSuccess) {
