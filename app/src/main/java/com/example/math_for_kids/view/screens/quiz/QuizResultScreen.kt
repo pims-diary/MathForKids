@@ -44,7 +44,7 @@ fun QuizResultScreen(navController: NavHostController, viewModel: QuizViewModel)
             modifier = Modifier.padding(bottom = 20.dp)
         )
         Text(
-            "Level: 1",
+            "Level: $level",
             fontSize = 20.sp,
             modifier = Modifier.padding(bottom = 20.dp)
         )
