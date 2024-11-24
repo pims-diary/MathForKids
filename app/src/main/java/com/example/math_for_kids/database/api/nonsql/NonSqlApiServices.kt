@@ -9,12 +9,12 @@ import retrofit2.http.Path
 data class UpdateLevel(var level: String)
 
 interface NonSqlApiServices {
-    @GET("get-player/{player_id}")
+    @GET("mongo/get-player/{player_id}")
     suspend fun getPlayer(
         @Path("player_id") playerId: String
     ): Response<Map<String, Any>>
 
-    @PUT("update-level/{player_id}")
+    @PUT("mongo/update-level/{player_id}")
     suspend fun updateLevel(
         @Path("player_id") playerId: String,
         @Body body: UpdateLevel
