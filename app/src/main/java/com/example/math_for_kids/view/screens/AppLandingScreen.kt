@@ -4,8 +4,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalDrawerSheet
@@ -26,6 +28,7 @@ import com.example.math_for_kids.model.MenuItemDetails
 import com.example.math_for_kids.navigations.QuizScreensStack
 import com.example.math_for_kids.view.components.MenuItem
 import com.example.math_for_kids.view.components.MenuTopBar
+import com.example.math_for_kids.view.screens.other.AboutScreen
 import kotlinx.coroutines.launch
 
 ///List of Navigation Items that will be clicked
@@ -39,6 +42,11 @@ val menuItems = listOf(
         title = "Play",
         selectedIcon = Icons.Filled.PlayArrow,
         unselectedIcon = Icons.Outlined.PlayArrow
+    ),
+    MenuItemDetails(
+        title = "About",
+        selectedIcon = Icons.Filled.Info,
+        unselectedIcon = Icons.Outlined.Info
     )
 )
 
@@ -72,6 +80,7 @@ fun AppLandingScreen(
                         when (selectedItemIndex) {
                             0 -> route = "home"
                             1 -> route = "play"
+                            2 -> route = "about"
                         }
                     }
                 }
@@ -91,6 +100,7 @@ fun AppLandingScreen(
         when (route) {
             "home" -> HomeScreen(navHostController)
             "play" -> QuizScreensStack()
+            "about" -> AboutScreen()
         }
     }
 }
