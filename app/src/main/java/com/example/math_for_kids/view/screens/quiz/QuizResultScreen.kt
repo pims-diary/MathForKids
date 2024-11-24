@@ -7,9 +7,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -18,9 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
+import com.example.math_for_kids.storage.getPlayerId
 import com.example.math_for_kids.storage.updateLevel
 import com.example.math_for_kids.viewmodel.PlayerDetailsViewModel
 import com.example.math_for_kids.viewmodel.QuizViewModel
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @Composable
@@ -29,6 +35,11 @@ fun QuizResultScreen(navController: NavHostController, viewModel: QuizViewModel)
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val level by viewModel.level.collectAsState()
+    var playerId by remember { mutableStateOf("") }
+
+    LaunchedEffect(Unit) {
+        playerId = getPlayerId(context).first()
+    }
 
     Column(
         modifier = Modifier
@@ -76,7 +87,7 @@ fun QuizResultScreen(navController: NavHostController, viewModel: QuizViewModel)
                         viewModel.changeLevel()
                         updateLevel(context = context, level = level)
                         val playerDetailsViewModel = PlayerDetailsViewModel()
-                        playerDetailsViewModel.updateLevel("10001", level.toString())
+                        playerDetailsViewModel.updateLevel(playerId, level.toString())
                         navController.navigate(QuizPage.QuizTest.route)
                     }
                 }
