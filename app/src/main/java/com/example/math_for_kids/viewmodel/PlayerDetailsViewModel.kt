@@ -21,7 +21,7 @@ class PlayerDetailsViewModel : ViewModel() {
     fun getPlayer(playerId: String) {
         viewModelScope.launch {
             try {
-                val response = RetrofitInstance.api.getPlayer(playerId)
+                val response = RetrofitInstance.nonSqlApiServices.getPlayer(playerId)
                 isSuccess = response.isSuccessful
                 responseBody = response.body() ?: emptyMap()
                 code = response.code()
@@ -42,7 +42,7 @@ class PlayerDetailsViewModel : ViewModel() {
         val requestBody = UpdateLevel(level = newLevel)
         viewModelScope.launch {
             try {
-                val response = RetrofitInstance.api.updateLevel(playerId, requestBody)
+                val response = RetrofitInstance.nonSqlApiServices.updateLevel(playerId, requestBody)
                 isSuccess = response.isSuccessful
                 responseBody = response.body() ?: emptyMap()
                 code = response.code()
