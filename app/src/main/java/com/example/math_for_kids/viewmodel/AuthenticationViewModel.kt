@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.math_for_kids.database.api.nonsql.UpdateLevel
 import com.example.math_for_kids.database.api.sql.LoginCreds
 import com.example.math_for_kids.database.instance.RetrofitInstance
 import kotlinx.coroutines.launch
@@ -15,9 +14,9 @@ import java.io.IOException
 
 class AuthenticationViewModel : ViewModel() {
     var responseBody by mutableStateOf<Map<String, Any>>(emptyMap())
-    private var errorMessage by mutableStateOf("")
+    var errorMessage by mutableStateOf("")
     private var code by mutableIntStateOf(0)
-    private var isSuccess by mutableStateOf(false)
+    var isSuccess by mutableStateOf(false)
 
     fun login(email: String, password: String) {
         val requestBody = LoginCreds(email, password)
@@ -25,8 +24,12 @@ class AuthenticationViewModel : ViewModel() {
             try {
                 val response = RetrofitInstance.sqlApiServices.login(requestBody)
                 isSuccess = response.isSuccessful
-                responseBody = response.body() ?: emptyMap()
                 code = response.code()
+                if (isSuccess) {
+                    responseBody = response.body() ?: emptyMap()
+                } else {
+                    errorMessage = response.errorBody()?.string() ?: "{}"
+                }
             } catch (e: IOException) {
                 isSuccess = false
                 errorMessage = "Network Error: ${e.message}"
@@ -39,5 +42,4 @@ class AuthenticationViewModel : ViewModel() {
             }
         }
     }
-
 }
