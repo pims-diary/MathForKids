@@ -1,6 +1,7 @@
 package com.example.math_for_kids.database.instance
 
 import com.example.math_for_kids.database.api.nonsql.NonSqlApiServices
+import com.example.math_for_kids.database.api.sql.SqlApiServices
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,7 +14,11 @@ object RetrofitInstance {
             .build()
     }
 
-    val api: NonSqlApiServices by lazy {
+    val nonSqlApiServices: NonSqlApiServices by lazy {
         retrofit.create(NonSqlApiServices::class.java)
+    }
+
+    val sqlApiServices: SqlApiServices by lazy {
+        retrofit.create(SqlApiServices::class.java)
     }
 }
