@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.math_for_kids.view.components.DialButton
 
 @Composable
 fun AboutScreen() {
@@ -16,5 +17,6 @@ fun AboutScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Text("About")
+        DialButton("+64 28 430 7422")
     }
 }
