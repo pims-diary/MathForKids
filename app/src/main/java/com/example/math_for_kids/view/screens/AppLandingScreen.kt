@@ -3,9 +3,11 @@ package com.example.math_for_kids.view.screens
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.outlined.Build
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PlayArrow
@@ -29,6 +31,7 @@ import com.example.math_for_kids.navigations.QuizScreensStack
 import com.example.math_for_kids.view.components.MenuItem
 import com.example.math_for_kids.view.components.MenuTopBar
 import com.example.math_for_kids.view.screens.other.AboutScreen
+import com.example.math_for_kids.view.screens.other.RssScreen
 import kotlinx.coroutines.launch
 
 ///List of Navigation Items that will be clicked
@@ -47,7 +50,13 @@ val menuItems = listOf(
         title = "About",
         selectedIcon = Icons.Filled.Info,
         unselectedIcon = Icons.Outlined.Info
+    ),
+    MenuItemDetails(
+        title = "RSS",
+        selectedIcon = Icons.Filled.Build,
+        unselectedIcon = Icons.Outlined.Build
     )
+
 )
 
 @Composable
@@ -81,6 +90,7 @@ fun AppLandingScreen(
                             0 -> route = "home"
                             1 -> route = "play"
                             2 -> route = "about"
+                            3 -> route = "rss"
                         }
                     }
                 }
@@ -101,6 +111,7 @@ fun AppLandingScreen(
             "home" -> HomeScreen(navHostController)
             "play" -> QuizScreensStack()
             "about" -> AboutScreen()
+            "rss" -> RssScreen()
         }
     }
 }
