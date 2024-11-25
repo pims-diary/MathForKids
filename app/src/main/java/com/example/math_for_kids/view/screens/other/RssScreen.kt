@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.math_for_kids.middlelayer.rss.fetchRssFeed
-import com.example.math_for_kids.model.Episode
+import com.example.math_for_kids.databaselayer.model.Episode
 import com.example.math_for_kids.view.components.EpisodeList
 
 @Composable

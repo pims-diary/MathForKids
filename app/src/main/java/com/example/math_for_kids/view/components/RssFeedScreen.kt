@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.math_for_kids.model.Episode
+import com.example.math_for_kids.databaselayer.model.Episode
 
 @Composable
 fun EpisodeList(episodes: List<Episode>) {

@@ -1,4 +1,4 @@
-package com.example.math_for_kids.model
+package com.example.math_for_kids.databaselayer.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

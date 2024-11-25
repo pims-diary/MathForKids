@@ -1,4 +1,4 @@
-package com.example.math_for_kids.database.api.sql
+package com.example.math_for_kids.databaselayer.api.sql
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Response

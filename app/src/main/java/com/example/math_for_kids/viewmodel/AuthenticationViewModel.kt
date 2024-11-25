@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.math_for_kids.database.api.sql.LoginCreds
-import com.example.math_for_kids.database.api.sql.RegisterCreds
-import com.example.math_for_kids.database.instance.RetrofitInstance
+import com.example.math_for_kids.databaselayer.api.sql.LoginCreds
+import com.example.math_for_kids.databaselayer.api.sql.RegisterCreds
+import com.example.math_for_kids.databaselayer.instance.RetrofitInstance
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException

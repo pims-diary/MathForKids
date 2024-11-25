@@ -1,6 +1,6 @@
 package com.example.math_for_kids.middlelayer.rss
 
-import com.example.math_for_kids.model.Episode
+import com.example.math_for_kids.databaselayer.model.Episode
 import org.jsoup.Jsoup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -7,7 +7,7 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.math_for_kids.model.MenuItemDetails
+import com.example.math_for_kids.databaselayer.model.MenuItemDetails
 
 @Composable
 fun MenuItem(

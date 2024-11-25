@@ -1,4 +1,4 @@
-package com.example.math_for_kids.model
+package com.example.math_for_kids.databaselayer.model
 
 data class Question(
     val question: String,

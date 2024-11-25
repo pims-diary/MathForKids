@@ -1,7 +1,7 @@
 package com.example.math_for_kids.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.math_for_kids.model.Question
+import com.example.math_for_kids.databaselayer.model.Question
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
