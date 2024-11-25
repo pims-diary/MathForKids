@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
-import com.example.math_for_kids.storage.getLevel
+import com.example.math_for_kids.databaselayer.storage.getLevel
 import com.example.math_for_kids.view.components.OptionsGrid
 import com.example.math_for_kids.viewmodel.QuizViewModel
 import kotlinx.coroutines.flow.first

@@ -1,4 +1,4 @@
-package com.example.math_for_kids.storage
+package com.example.math_for_kids.databaselayer.storage
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit

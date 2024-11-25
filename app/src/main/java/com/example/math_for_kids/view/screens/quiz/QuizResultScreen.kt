@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
-import com.example.math_for_kids.storage.getPlayerId
-import com.example.math_for_kids.storage.updateLevel
+import com.example.math_for_kids.databaselayer.storage.getPlayerId
+import com.example.math_for_kids.databaselayer.storage.updateLevel
 import com.example.math_for_kids.viewmodel.PlayerDetailsViewModel
 import com.example.math_for_kids.viewmodel.QuizViewModel
 import kotlinx.coroutines.flow.first

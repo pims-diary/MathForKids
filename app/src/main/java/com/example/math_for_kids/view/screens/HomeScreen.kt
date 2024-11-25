@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.AuthPages
-import com.example.math_for_kids.storage.getPlayerId
-import com.example.math_for_kids.storage.savePlayerId
-import com.example.math_for_kids.storage.updateLevel
+import com.example.math_for_kids.databaselayer.storage.getPlayerId
+import com.example.math_for_kids.databaselayer.storage.savePlayerId
+import com.example.math_for_kids.databaselayer.storage.updateLevel
 import com.example.math_for_kids.viewmodel.PlayerDetailsViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
