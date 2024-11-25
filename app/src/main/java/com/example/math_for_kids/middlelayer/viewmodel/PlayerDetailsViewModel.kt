@@ -1,4 +1,4 @@
-package com.example.math_for_kids.viewmodel
+package com.example.math_for_kids.middlelayer.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf

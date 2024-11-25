@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.math_for_kids.view.screens.quiz.QuizResultScreen
 import com.example.math_for_kids.view.screens.quiz.QuizScreen
-import com.example.math_for_kids.viewmodel.QuizViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.QuizViewModel
 
 sealed class QuizPage(val route: String) {
     data object QuizTest : QuizPage("test")

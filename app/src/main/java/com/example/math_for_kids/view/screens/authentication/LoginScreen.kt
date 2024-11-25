@@ -20,7 +20,7 @@ import com.example.math_for_kids.databaselayer.storage.getPlayerId
 import com.example.math_for_kids.databaselayer.storage.savePlayerId
 import com.example.math_for_kids.view.components.AuthenticationForm
 import com.example.math_for_kids.view.components.LinkButton
-import com.example.math_for_kids.viewmodel.AuthenticationViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.AuthenticationViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 

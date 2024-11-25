@@ -25,7 +25,7 @@ import com.example.math_for_kids.navigations.AuthPages
 import com.example.math_for_kids.databaselayer.storage.getPlayerId
 import com.example.math_for_kids.databaselayer.storage.savePlayerId
 import com.example.math_for_kids.databaselayer.storage.updateLevel
-import com.example.math_for_kids.viewmodel.PlayerDetailsViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.PlayerDetailsViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 

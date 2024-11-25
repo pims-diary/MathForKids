@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.math_for_kids.viewmodel.AuthenticationViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.AuthenticationViewModel
 
 @Composable
 fun AuthenticationForm(

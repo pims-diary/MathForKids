@@ -1,4 +1,4 @@
-package com.example.math_for_kids.viewmodel
+package com.example.math_for_kids.middlelayer.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.math_for_kids.databaselayer.model.Question

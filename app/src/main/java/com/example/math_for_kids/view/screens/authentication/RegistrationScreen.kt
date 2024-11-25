@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.AuthPages
 import com.example.math_for_kids.view.components.AuthenticationForm
 import com.example.math_for_kids.view.components.LinkButton
-import com.example.math_for_kids.viewmodel.AuthenticationViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.AuthenticationViewModel
 
 @Composable
 fun RegistrationScreen(navHostController: NavHostController, authViewModel: AuthenticationViewModel = viewModel()) {

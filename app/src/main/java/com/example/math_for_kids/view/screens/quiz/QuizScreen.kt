@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import com.example.math_for_kids.navigations.QuizPage
 import com.example.math_for_kids.databaselayer.storage.getLevel
 import com.example.math_for_kids.view.components.OptionsGrid
-import com.example.math_for_kids.viewmodel.QuizViewModel
+import com.example.math_for_kids.middlelayer.viewmodel.QuizViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
