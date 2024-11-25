@@ -89,11 +89,11 @@ fun HomeScreen(
             Text("Player ID: $playerId")
 
             Button(onClick = {
-                navHostController.navigate(AuthPages.Login.route)
                 // Clear dataStore on Logout
                 scope.launch {
                     updateLevel(context, 0)
                     savePlayerId(context, "")
+                    navHostController.navigate(AuthPages.Login.route)
                 }
             }) {
                 Text("Logout")
