@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens
+package com.example.math_for_kids.presentationlayer.view.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.math_for_kids.navigations.AuthPages
+import com.example.math_for_kids.presentationlayer.navigations.AuthPages
 import com.example.math_for_kids.databaselayer.storage.getPlayerId
 import com.example.math_for_kids.databaselayer.storage.savePlayerId
 import com.example.math_for_kids.databaselayer.storage.updateLevel

@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens.other
+package com.example.math_for_kids.presentationlayer.view.screens.other
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.math_for_kids.view.components.DialButton
-import com.example.math_for_kids.view.components.MapButton
+import com.example.math_for_kids.presentationlayer.view.components.DialButton
+import com.example.math_for_kids.presentationlayer.view.components.MapButton
 
 @Composable
 fun AboutScreen() {

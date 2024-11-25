@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens
+package com.example.math_for_kids.presentationlayer.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

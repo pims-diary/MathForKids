@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens
+package com.example.math_for_kids.presentationlayer.view.screens
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -27,11 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.math_for_kids.databaselayer.model.MenuItemDetails
-import com.example.math_for_kids.navigations.QuizScreensStack
-import com.example.math_for_kids.view.components.MenuItem
-import com.example.math_for_kids.view.components.MenuTopBar
-import com.example.math_for_kids.view.screens.other.AboutScreen
-import com.example.math_for_kids.view.screens.other.RssScreen
+import com.example.math_for_kids.presentationlayer.navigations.QuizScreensStack
+import com.example.math_for_kids.presentationlayer.view.components.MenuItem
+import com.example.math_for_kids.presentationlayer.view.components.MenuTopBar
+import com.example.math_for_kids.presentationlayer.view.screens.other.AboutScreen
+import com.example.math_for_kids.presentationlayer.view.screens.other.RssScreen
 import kotlinx.coroutines.launch
 
 ///List of Navigation Items that will be clicked

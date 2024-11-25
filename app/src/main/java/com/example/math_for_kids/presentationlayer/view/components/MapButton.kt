@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.components
+package com.example.math_for_kids.presentationlayer.view.components
 
 import android.content.ActivityNotFoundException
 import android.content.Intent

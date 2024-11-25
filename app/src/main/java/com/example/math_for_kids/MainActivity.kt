@@ -14,9 +14,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.math_for_kids.navigations.LoginScreensStack
+import com.example.math_for_kids.presentationlayer.navigations.LoginScreensStack
 import com.example.math_for_kids.ui.theme.Math_For_KidsTheme
-import com.example.math_for_kids.view.screens.SplashScreen
+import com.example.math_for_kids.presentationlayer.view.screens.SplashScreen
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {

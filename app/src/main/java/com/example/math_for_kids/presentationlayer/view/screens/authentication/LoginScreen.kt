@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens.authentication
+package com.example.math_for_kids.presentationlayer.view.screens.authentication
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.math_for_kids.navigations.AuthPages
+import com.example.math_for_kids.presentationlayer.navigations.AuthPages
 import com.example.math_for_kids.databaselayer.storage.getPlayerId
 import com.example.math_for_kids.databaselayer.storage.savePlayerId
-import com.example.math_for_kids.view.components.AuthenticationForm
-import com.example.math_for_kids.view.components.LinkButton
+import com.example.math_for_kids.presentationlayer.view.components.AuthenticationForm
+import com.example.math_for_kids.presentationlayer.view.components.LinkButton
 import com.example.math_for_kids.middlelayer.viewmodel.AuthenticationViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

@@ -1,12 +1,12 @@
-package com.example.math_for_kids.navigations
+package com.example.math_for_kids.presentationlayer.navigations
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.math_for_kids.view.screens.quiz.QuizResultScreen
-import com.example.math_for_kids.view.screens.quiz.QuizScreen
+import com.example.math_for_kids.presentationlayer.view.screens.quiz.QuizResultScreen
+import com.example.math_for_kids.presentationlayer.view.screens.quiz.QuizScreen
 import com.example.math_for_kids.middlelayer.viewmodel.QuizViewModel
 
 sealed class QuizPage(val route: String) {

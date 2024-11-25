@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens.other
+package com.example.math_for_kids.presentationlayer.view.screens.other
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.math_for_kids.middlelayer.rss.fetchRssFeed
 import com.example.math_for_kids.databaselayer.model.Episode
-import com.example.math_for_kids.view.components.EpisodeList
+import com.example.math_for_kids.presentationlayer.view.components.EpisodeList
 
 @Composable
 fun RssScreen() {

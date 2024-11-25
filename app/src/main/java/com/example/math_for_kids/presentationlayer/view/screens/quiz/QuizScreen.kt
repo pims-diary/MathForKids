@@ -1,4 +1,4 @@
-package com.example.math_for_kids.view.screens.quiz
+package com.example.math_for_kids.presentationlayer.view.screens.quiz
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -10,9 +10,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.math_for_kids.navigations.QuizPage
+import com.example.math_for_kids.presentationlayer.navigations.QuizPage
 import com.example.math_for_kids.databaselayer.storage.getLevel
-import com.example.math_for_kids.view.components.OptionsGrid
+import com.example.math_for_kids.presentationlayer.view.components.OptionsGrid
 import com.example.math_for_kids.middlelayer.viewmodel.QuizViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
